@@ -1,6 +1,7 @@
 package es.upm.tfmaida.servlet;
 
 import es.upm.tfmaida.Parser;
+import es.upm.tfmaida.TxtWriter;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -18,20 +19,23 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping(value = "/parser/document")
 public class ParserController {
     
     @ApiOperation(value = "Test of the functionality", notes = "You should carefully document your method here", response = String.class, tags = "aida")
     @PostMapping(consumes = {MediaType.TEXT_PLAIN_VALUE}, produces = {MediaType.TEXT_PLAIN_VALUE})
     @ResponseBody
     @ResponseStatus(value = HttpStatus.CREATED)
+    @RequestMapping(value = "/license2rdf")
     public String create(@RequestBody String texto) {
-        String res = "";
-        String sentences[] = Parser.getSentences(texto);
-        for (String sentence : sentences) {
-            System.out.println(sentence);
-            res+=sentence+" -----\n"; 
-        }
+        
+        String res = TxtWriter.Text2RDF(texto);
         return res;
     }
+    
+    @RequestMapping("/about")
+    public String about(){
+        return "Aida";
+    }
+    
+    
 }

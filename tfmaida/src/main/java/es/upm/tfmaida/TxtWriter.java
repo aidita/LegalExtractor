@@ -24,12 +24,8 @@ public class TxtWriter {
      * 
      * @param ruta 
      */
-    public static void TXT2RDF(String ruta) throws IOException {
-        String PERMISSION = "";
-        String DUTY = "";
-        String PROHIBITION = "";
+    public static String TXT2RDF(String ruta) throws IOException {
         String TEXT="";
-        
         try {
             TEXT = TxtReader.TXT2String(ruta);
         } catch (FileNotFoundException ex) {
@@ -69,8 +65,21 @@ public class TxtWriter {
             LABEL = LABEL + " " + VERSION;
             VERSION = "";
         }
-                }
+                }      
+        
+        return Text2RDF(TEXT);
+    }
+    
+    public static String Text2RDF(String TEXT)
+    {
+        String PERMISSION = "";
+        String DUTY = "";
+        String PROHIBITION = "";
+        String LABEL = "label";
+        String VERSION = "1.0";
+        String TAG="result";
 
+        try{
         
         String sentences[] = Parser.getSentences(TEXT);
         ArrayList<ArrayList<String>> wordsWithTags = Parser(TEXT);
@@ -159,7 +168,12 @@ public class TxtWriter {
         } catch (IOException e) {
             System.err.format("IOException: %s%n", e);
         }
-
+        return plantilla;
+    }catch(Exception exc)
+    {
+        return exc.getMessage();
+    }
+       
     }
 
 }
