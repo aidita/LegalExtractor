@@ -66,7 +66,7 @@ public class TxtReader {
         ArrayList<String> lista = new ArrayList();
 
         String home = System.getProperty("user.home");
-        File archivo = new File(home + "/NetBeansProjects/tfmaida-master/res/" + ruta);
+        File archivo = new File("../res/" + ruta);
 
         if (archivo.exists()) {
 

@@ -31,7 +31,7 @@ public class Parser {
         try {
             final File fsent;
             String home = System.getProperty("user.home");
-            fsent = new File(home + "/NetBeansProjects/tfmaida-master/res/en-sent.bin");
+            fsent = new File("../res/en-sent.bin");
             //System.out.println(fsent.toString());
             if (!fsent.exists()) {
                 System.err.println("I could not find the file " + fsent.getAbsolutePath());

@@ -41,7 +41,8 @@ public class Main {
         // for(String s: sentence){
             // System.out.println(Parser(s)+"\n\n");
         // } 
-        TXT2RDF(home+"/NetBeansProjects/tfmaida-master/data/licenses-en-txt/Creative Commons CC-BY-SA 2.0.txt");
+//        TXT2RDF(home+"/NetBeansProjects/tfmaida-master/data/licenses-en-txt/Creative Commons CC-BY-SA 2.0.txt");
+        TXT2RDF("D:\\licencia.txt");
    }
 
 }

@@ -48,8 +48,12 @@ public class TxtWriter {
         TAG = TAG.replaceAll("\\s+","");
         
         int pos = ruta.lastIndexOf(" ");
-        String LABEL = ruta.substring(0, pos);
-        String VERSION = ruta.substring(pos+1);
+        String LABEL = "label";
+        String VERSION = "1.0";
+        if (pos!=-1)
+        {
+        LABEL = ruta.substring(0, pos);
+        VERSION = ruta.substring(pos+1);
         
         boolean hasVersion = false;
         
@@ -65,6 +69,8 @@ public class TxtWriter {
             LABEL = LABEL + " " + VERSION;
             VERSION = "";
         }
+                }
+
         
         String sentences[] = Parser.getSentences(TEXT);
         ArrayList<ArrayList<String>> wordsWithTags = Parser(TEXT);
