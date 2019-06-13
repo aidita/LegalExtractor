@@ -28,10 +28,9 @@ public class TxtReader {
     public static String TXT2String(String ruta) throws FileNotFoundException {
         String cadena;
         String cadenaRetorno = "";
-
-        String home = System.getProperty("user.home");
-        File archivo = new File(home + "/NetBeansProjects/tfmaida-master/data/" + ruta);
-
+        
+        File archivo = new File(ruta);
+        
         if (archivo.exists()) {
 
             try {

@@ -27,7 +27,7 @@ public class ParserController {
     @ResponseStatus(value = HttpStatus.CREATED)
     public String create(@RequestBody String texto) {
         String res = "";
-        String sentences[] = Parser.getSentences(texto, true);
+        String sentences[] = Parser.getSentences(texto);
         for (String sentence : sentences) {
             System.out.println(sentence);
             res+=sentence+" -----\n"; 

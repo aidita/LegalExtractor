@@ -29,7 +29,8 @@ public class Lemmatizer {
      * @throws FileNotFoundException
      * @throws IOException 
      */
-    public static void Lemmatizer(ArrayList<ArrayList<String>> wordsWithTags, String[] sentences) throws FileNotFoundException, IOException{
+    public static ArrayList<String> Lemmatizer(ArrayList<ArrayList<String>> wordsWithTags, String[] sentences) throws FileNotFoundException, IOException{
+        ArrayList<String> sentences_final = null;
         
         if ((wordsWithTags != null) && !wordsWithTags.isEmpty()){
             
@@ -68,9 +69,9 @@ public class Lemmatizer {
             // }
             
             // Obtenemos las frases con verbos clave
-            isKeyVerb(wordsWithTags, lem, sentences); 
+            sentences_final = isKeyVerb(wordsWithTags, lem, sentences); 
         }
-        
+        return sentences_final;
     }
     
     
@@ -113,12 +114,12 @@ public class Lemmatizer {
         // Añadimos las frases que contienen algún verbo clave a la lista de retorno
         // Imprimimos sus valores para comprobar que se hace correctamente
         sentences.add(sent[positions.get(0)]);
-        System.out.println("\n#frase: "+ positions.get(0) + " --> " + sent[positions.get(0)]+ "\n");
+        //System.out.println("\n#frase: "+ positions.get(0) + " --> " + sent[positions.get(0)]+ "\n");
         for (int i = 1; i<positions.size();i++) {
             int el = positions.get(i);
             if (!positions.get(i-1).equals(el)) {
                 sentences.add(sent[el]);
-                System.out.println("#frase: "+ el + " --> " + sent[el]+ "\n");
+                //System.out.println("#frase: "+ el + " --> " + sent[el]+ "\n");
             }
         }
         

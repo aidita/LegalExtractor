@@ -27,26 +27,23 @@ public class Parser {
      * @param paragraph texto
      * @return frases del texto
      */
-    public static String[] getSentences(String paragraph, boolean en) {
+    public static String[] getSentences(String paragraph) {
         try {
-            File fensent;
-            if (en) {
-               fensent = new File("../res/en-sent.bin");
-            } else {
-               fensent = new File("../res/es-sent.bin"); 
+            final File fsent;
+            String home = System.getProperty("user.home");
+            fsent = new File(home + "/NetBeansProjects/tfmaida-master/res/en-sent.bin");
+            //System.out.println(fsent.toString());
+            if (!fsent.exists()) {
+                System.err.println("I could not find the file " + fsent.getAbsolutePath());
             }
-            
-            if (!fensent.exists()) {
-                System.err.println("I could not find the file " + fensent.getAbsolutePath());
-            }
-            FileInputStream modelIn = new FileInputStream(fensent);
+            FileInputStream modelIn = new FileInputStream(fsent);
             final SentenceModel sentenceModel = new SentenceModel(modelIn);
             modelIn.close();
             SentenceDetector sentenceDetector = new SentenceDetectorME(sentenceModel);
             String sentences[] = sentenceDetector.sentDetect(paragraph);
-            for (String sent : sentences) {
+            //for (String sent : sentences) {
                 //   System.out.println(sent);
-            }
+            //}
             return sentences;
         } catch (Exception e) {
             return new String[0];
@@ -86,7 +83,7 @@ public class Parser {
             if (model != null) {
                 POSTaggerME tagger = new POSTaggerME(model);
                 if (tagger != null) {
-                    String[] sentences = getSentences(text,true);
+                    String[] sentences = getSentences(text);
                     int numSentence = 0;
                     for (String sentence : sentences) {
                         String whitespaceTokenizerLine[] = WhitespaceTokenizer.INSTANCE.tokenize(sentence);
