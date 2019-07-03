@@ -5,30 +5,68 @@
  */
 package es.upm.tfmaida;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author aida
  */
 public class Duties {
     
-    public static String getDuties(String DUTY, String sentence){
+    public static boolean hasNotice = false;
+    public static boolean hasAttribution = false;
+    public static boolean hasShareAlike = false;
+    public static boolean hasSourceCode = false;
+    
+    public static String getDuties(String duty, String sentence){
         
-        if (sentence.contains("provide a link to the license") || sentence.contains("notice")) {
-            if(!DUTY.contains("cc:Notice")){DUTY += "cc:Notice , ";}
-        }
-        if(sentence.contains("give appropriate credit") || sentence.contains("attribution")) {
-            if(!DUTY.contains("cc:Attribution")){DUTY += "cc:Attribution , ";}
-        }
-        if((sentence.contains("originator") && sentence.contains("identify")) ||
-                (sentence.contains("copyright") && sentence.contains("reproduce")) ||
-                (sentence.contains("sharealike"))){
-            if(!DUTY.contains("cc:ShareAlike")){DUTY += "cc:ShareAlike , ";}
-        }
-        if(sentence.contains("provide a machine-readable copy of the source code")) {
-            if(!DUTY.contains("cc:SourceCode")){DUTY += "cc:SourceCode , ";}
+        ArrayList<String> notice = TxtReader.getRegex("../res/notice.txt");
+        ArrayList<String> attribution = TxtReader.getRegex("../res/attribution.txt");
+        ArrayList<String> shareAlike = TxtReader.getRegex("../res/shareAlike.txt");
+        ArrayList<String> sourceCode = TxtReader.getRegex("../res/sourceCode.txt");
+        
+        if(!hasNotice){
+            for(String regex: notice) {
+                if(sentence.matches(regex)){
+                    duty += "cc:Notice , ";
+                    hasNotice = true;
+                    break;
+                }
+            }
         }
         
-        return DUTY;
+        if(!hasAttribution){
+            for(String regex: attribution) {
+                if(sentence.matches(regex)){
+                    duty += "cc:Attribution , ";
+                    hasAttribution = true;
+                    break;
+                }
+            }
+        }
+        
+        if(!hasShareAlike){
+            for(String regex: shareAlike) {
+                if(sentence.matches(regex)){
+                    duty += "cc:ShareAlike , ";
+                    hasShareAlike = true;
+                    break;
+                }
+            }
+        }
+        
+        if(!hasSourceCode){
+            for(String regex: sourceCode) {
+                if(sentence.matches(regex)){
+                    duty += "cc:SourceCode , ";
+                    hasSourceCode = true;
+                    break;
+                }
+            }
+        }
+        
+        
+        return duty;
     }
     
 }

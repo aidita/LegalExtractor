@@ -5,45 +5,92 @@
  */
 package es.upm.tfmaida;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author aida
  */
 public class Permissions {
-    public static String getPermissions(String PERMISSION, String sentence) {
+    
+    public static boolean hasReproduction = false;
+    public static boolean hasDistribution = false;
+    public static boolean hasModify = false; 
+    public static boolean hasDerivativeWorks = false; 
+    public static boolean hasSell = false;
+    public static boolean hasLease = false;
+    
+    public static String getPermissions(String permission, String sentence) {
         
-        // Casos identificados
-        if(sentence.contains("you are free to")|| sentence.contains("royalty-free") ||
-                sentence.contains("non-exclusive")|| sentence.contains("permit") ||
-                sentence.contains("without restriction")|| sentence.contains("without limitation") ||
-                sentence.contains("free of charge")|| sentence.contains("requires permission")
-                || sentence.contains("requiring permission")){
-        
-            if(sentence.contains("reproduce") || sentence.contains("copy")){
-                if(!PERMISSION.contains("cc:Reproduction")){PERMISSION += "cc:Reproduction , ";}
-            }
-            if(sentence.contains("distribute") || sentence.contains("distribution")){
-                if(!PERMISSION.contains("cc:Distribution")){PERMISSION += "cc:Distribution , ";}
-            }
-            if(sentence.contains("modify") || sentence.contains("modification")){
-                if(!PERMISSION.contains("odrl:modify")){PERMISSION += "odrl:modify , ";}
-            }
-            if(sentence.contains("remix") || sentence.contains("transform") 
-                    || sentence.contains("make derivative works") || sentence.contains("prepare derivative works")){
-                if(!PERMISSION.contains("cc:DerivativeWorks")){PERMISSION += "cc:DerivativeWorks , ";}
-            }
-            if(sentence.contains("sell") || sentence.contains("rent")){
-                if(!PERMISSION.contains("odrl:sell")){PERMISSION += "odrl:sell , ";}
-            }
-            if(sentence.contains("lend") || sentence.contains("lease")){
-                if(!PERMISSION.contains("odrl:lease")){PERMISSION += "odrl:lease , ";}
-            }
-            if(sentence.contains("share") && sentence.contains("noncommercial")){
-                if(!PERMISSION.contains("odrl:lease")){PERMISSION += "odrl:lease , ";}
+        ArrayList<String> reproduction = TxtReader.getRegex("../res/reproduction.txt");
+        ArrayList<String> distribution = TxtReader.getRegex("../res/distribution.txt");
+        ArrayList<String> modify = TxtReader.getRegex("../res/modify.txt");
+        ArrayList<String> derivativeWorks = TxtReader.getRegex("../res/derivativeWorks.txt");
+        ArrayList<String> sell = TxtReader.getRegex("../res/sell.txt");
+        ArrayList<String> lease = TxtReader.getRegex("../res/lease.txt");
+
+        if(!hasReproduction){
+            for(String regex: reproduction) {
+                if(sentence.matches(regex)){
+                    permission += "cc:Reproduction , ";
+                    hasReproduction = true;
+                    break;
+                }
             }
         }
         
-        return PERMISSION;
+        if(!hasDistribution){
+            for(String regex: distribution) {
+                if(sentence.matches(regex)){
+                    permission += "cc:Distribution , ";
+                    hasDistribution = true;
+                    break;
+                }
+            }
+        }
+        
+        if(!hasModify){
+            for(String regex: modify) {
+                if(sentence.matches(regex)){
+                    permission += "odrl:modify , ";
+                    hasModify = true;
+                    break;
+                }
+            }
+        }
+        
+        if(!hasDerivativeWorks){
+            for(String regex: derivativeWorks) {
+                if(sentence.matches(regex)){
+                    permission += "cc:DerivativeWorks , ";
+                    hasDerivativeWorks = true;
+                    break;
+                }
+            }
+        }
+        
+        if(!hasSell){
+            for(String regex: sell) {
+                if(sentence.matches(regex)){
+                    permission += "odrl:sell , ";
+                    hasSell = true;
+                    break;
+                }
+            }
+        }
+        
+        if(!hasLease){
+            for(String regex: lease) {
+                if(sentence.matches(regex)){
+                    permission += "odrl:lease , ";
+                    hasLease = true;
+                    break;
+                }
+            }
+        }
+        
+        
+        return permission;
     }
     
 }

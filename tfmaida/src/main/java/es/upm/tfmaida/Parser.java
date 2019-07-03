@@ -30,9 +30,7 @@ public class Parser {
     public static String[] getSentences(String paragraph) {
         try {
             final File fsent;
-            String home = System.getProperty("user.home");
             fsent = new File("../res/en-sent.bin");
-            //System.out.println(fsent.toString());
             if (!fsent.exists()) {
                 System.err.println("I could not find the file " + fsent.getAbsolutePath());
             }
@@ -91,7 +89,7 @@ public class Parser {
                         for (int i = 0; i < whitespaceTokenizerLine.length; i++) {
                             String word = whitespaceTokenizerLine[i].trim();
                             String tag = tags[i].trim();
-                            System.out.print(tag + ":" + word + "  ");
+                            //System.out.print(tag + ":" + word + "  ");
                             
                             // Si la etiqueta tag coincide con VB o VB* --> 
                                 // Metemos la palabra word en una lista junto 

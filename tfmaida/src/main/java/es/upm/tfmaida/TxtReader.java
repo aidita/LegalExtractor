@@ -52,6 +52,46 @@ public class TxtReader {
         return cadenaRetorno;
     }
 
+    
+    public static String getLabel(String text) throws FileNotFoundException {
+        String cadena = "";
+        int pos = text.indexOf("\n");
+        
+        cadena = text.substring(0, pos);
+        
+        return cadena;
+    }
+    
+    public static ArrayList<String> getRegex(String ruta) {
+        
+        String cadena;
+        ArrayList<String> setOfRegex = new ArrayList<String>();
+        
+        File archivo = new File(ruta);
+        
+        if (archivo.exists()) {
+
+            try {
+                FileReader fr = new FileReader(archivo);
+                BufferedReader br = new BufferedReader(fr);
+                while ((cadena = br.readLine()) != null) {
+                    setOfRegex.add(cadena);
+                }
+                br.close();
+                fr.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.err.println("El sistema no pudo hallar la ruta especifica.");
+        }
+        
+        return setOfRegex;
+        
+    }
+    
     /**
      * Método que retorna una lista con los verbos clave (lematizados) dado un archivo 
      * con formato TXT. 
