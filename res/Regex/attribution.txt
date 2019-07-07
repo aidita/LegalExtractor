@@ -1,0 +1,5 @@
+(.*)(must|shall|may)(.*)identification of the creator(.*)
+(.*)(must|shall|may)(.*)receive attribution(.*)
+(.*)(must|shall|may)(.*)give appropriate credit(.*)
+(.*)(must|shall|may)(.*)keep intact all copyright(.*)
+(.*)(must|shall|may)(.*)includ(.*)attribution(.*)(provider|creator)(.*)

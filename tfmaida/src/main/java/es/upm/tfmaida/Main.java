@@ -6,15 +6,14 @@ import java.io.IOException;
 
 
 /**
- * Ejemplo que pone victor a aida de cómo usar funcionalidad de opennlp.
- * Usa "run file" para probarlo.
- * @author vroddon
+ * 
+ * @author aida
  */
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, IOException{
         
-        TXT2RDF("/Users/aida/NetBeansProjects/tfmaida-master/data/licenses-en-txt/5.txt");
+        TXT2RDF("/Users/aida/NetBeansProjects/tfmaida-master/test/licenses-en-txt/9.txt");
         
    }
 

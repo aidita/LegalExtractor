@@ -3,6 +3,9 @@ package es.upm.tfmaida.servlet;
 import es.upm.tfmaida.Parser;
 import es.upm.tfmaida.TxtWriter;
 import io.swagger.annotations.ApiOperation;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -28,7 +31,12 @@ public class ParserController {
     @RequestMapping(value = "/license2rdf")
     public String create(@RequestBody String texto) {
         
-        String res = TxtWriter.Text2RDF(texto);
+        String res="";
+        try {
+            res = TxtWriter.Text2RDF(texto);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ParserController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return res;
     }
     

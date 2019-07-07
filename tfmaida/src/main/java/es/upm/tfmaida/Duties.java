@@ -20,10 +20,10 @@ public class Duties {
     
     public static String getDuties(String duty, String sentence){
         
-        ArrayList<String> notice = TxtReader.getRegex("../res/notice.txt");
-        ArrayList<String> attribution = TxtReader.getRegex("../res/attribution.txt");
-        ArrayList<String> shareAlike = TxtReader.getRegex("../res/shareAlike.txt");
-        ArrayList<String> sourceCode = TxtReader.getRegex("../res/sourceCode.txt");
+        ArrayList<String> notice = TxtReader.getRegex("../res/Regex/notice.txt");
+        ArrayList<String> attribution = TxtReader.getRegex("../res/Regex/attribution.txt");
+        ArrayList<String> shareAlike = TxtReader.getRegex("../res/Regex/shareAlike.txt");
+        ArrayList<String> sourceCode = TxtReader.getRegex("../res/Regex/sourceCode.txt");
         
         if(!hasNotice){
             for(String regex: notice) {

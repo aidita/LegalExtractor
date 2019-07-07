@@ -18,7 +18,7 @@ public class Prohibitions {
     
     public static String getProhibitions(String prohibition, String sentence) {
         
-        ArrayList<String> nonCommercial = TxtReader.getRegex("../res/nonCommercial.txt");
+        ArrayList<String> nonCommercial = TxtReader.getRegex("../res/Regex/nonCommercial.txt");
 
         if(!hasCommercial){
             for(String regex: nonCommercial) {

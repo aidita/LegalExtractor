@@ -31,7 +31,7 @@ public class Swagger2Config {
     private ApiInfo apiInfo() {
         return new ApiInfo(
                 "Aida XXX XXX",
-                "Demo de la TFM.",
+                "Demo del TFM.",
                 "1.0",
                 "http://futurelicense",
                 "Universidad Politécnica de Madrid",

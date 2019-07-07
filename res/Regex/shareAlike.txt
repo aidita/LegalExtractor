@@ -1,0 +1,3 @@
+(.*)(must|shall)(.*)distribute(.*)under(.*)the same (licence|license)(.*)as the original(.*)
+(.*)redistribution(.*)(must|shall) reproduce(.*)copyright notice(.*)list of conditions(.*)provided with the distribution(.*)
+(.*)(distribute|provide)(.*)under(.*)the terms(.*)of this (license|licence|agreement)(.*)

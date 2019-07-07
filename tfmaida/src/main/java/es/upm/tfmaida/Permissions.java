@@ -22,12 +22,12 @@ public class Permissions {
     
     public static String getPermissions(String permission, String sentence) {
         
-        ArrayList<String> reproduction = TxtReader.getRegex("../res/reproduction.txt");
-        ArrayList<String> distribution = TxtReader.getRegex("../res/distribution.txt");
-        ArrayList<String> modify = TxtReader.getRegex("../res/modify.txt");
-        ArrayList<String> derivativeWorks = TxtReader.getRegex("../res/derivativeWorks.txt");
-        ArrayList<String> sell = TxtReader.getRegex("../res/sell.txt");
-        ArrayList<String> lease = TxtReader.getRegex("../res/lease.txt");
+        ArrayList<String> reproduction = TxtReader.getRegex("../res/Regex/reproduction.txt");
+        ArrayList<String> distribution = TxtReader.getRegex("../res/Regex/distribution.txt");
+        ArrayList<String> modify = TxtReader.getRegex("../res/Regex/modify.txt");
+        ArrayList<String> derivativeWorks = TxtReader.getRegex("../res/Regex/derivativeWorks.txt");
+        ArrayList<String> sell = TxtReader.getRegex("../res/Regex/sell.txt");
+        ArrayList<String> lease = TxtReader.getRegex("../res/Regex/lease.txt");
 
         if(!hasReproduction){
             for(String regex: reproduction) {

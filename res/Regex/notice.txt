@@ -1,0 +1,6 @@
+(.*)(must|shall|may)(.*)copyright notice(.*)
+(.*)(must|shall|may)(.*)notice(.*)this(.*)(license|licence)(.*)
+(.*)(must|shall|may)(.*)(provide|include)(.*)link to(.*)(license|licence)(.*)
+(.*)all rights(.*)are reserved(.*)
+(.*)copyright notice(.*)(must|shall|may)(.*)
+(.*)notice(.*)should be included(.*)

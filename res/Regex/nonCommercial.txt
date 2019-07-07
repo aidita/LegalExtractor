@@ -1,0 +1,4 @@
+(.*)for (noncommercial|non-commercial) purposes (only){0,1}(.*)
+(.*)not(.*)(commercial advantages|monetary compensation)(.*)
+(.*)you are free to(.*)(noncommercial|non-commercial)(.*)
+(.*)without fortitude of lucre(.*)

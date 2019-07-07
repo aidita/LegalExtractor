@@ -1,0 +1,5 @@
+(.*)with or without modification(.*)are permitted(.*)
+(.*)free of charge(.*)modify(.*)
+(.*)permission to(.*)modify(.*)
+(.*)royalty-free(.*)modify(.*)
+(.*)permit(.*)freely(.*)modify(.*)

@@ -1,0 +1,2 @@
+(.*)royalty-free(.*)( rent | rent,| sell | sell,)(.*)
+(.*)free of charge(.*)( rent | rent,| sell | sell,)(.*)

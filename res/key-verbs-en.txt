@@ -1,10 +1,12 @@
 allow
+authorize
 build
 change
 claim
 copy
 distribute
 grant
+include
 keep
 lend
 limit
@@ -26,4 +28,5 @@ sell
 sue
 surrender
 transfer
+transform
 translate
