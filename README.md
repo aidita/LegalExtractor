@@ -1,4 +1,4 @@
-# tfmaida
+# Automatic conversion of textual licenses to structured digital licenses
 
 This is the Trabajo Fin de Máster of Aida Sánchez Romero.
 
