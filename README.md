@@ -12,11 +12,11 @@ complexity and ambiguity of natural language.
 Therefore, Information Extraction has been studied in several very restricted
 domains involving a large community of researchers for more than three decades. In
 spite of this, it is not until just over 5 years ago that people started to talk about the
-"legaltech" or legal technology concept. This concept refers to the use of technology
+"_legaltech_" or legal technology concept. This concept refers to the use of technology
 and softwares to other legal services. Some of these services include review contracts
-to and unacceptable or required clauses (LawGeex); help detect deadlines, obligations
-or validity in due diligence processes (Luminance); or analyze jurisprudence
-in order to extract relevant information to raise a procedural strategy (Ravel Law).
+to and unacceptable or required clauses (_LawGeex_); help detect deadlines, obligations
+or validity in due diligence processes (_Luminance_); or analyze jurisprudence
+in order to extract relevant information to raise a procedural strategy (_Ravel Law_).
 
 In this work, we propose to create a software system based on this concept. The
 intention is to this system is able to extract the relevant information from a license
@@ -31,7 +31,7 @@ the creator/s of the license.
 
 ## How to install 
 
-* Prerequisite: latest Java Version, NetBeans (8.2 version used)
+* **Prerequisite**: latest Java Version, NetBeans (8.2 version used)
 
 * Download the code from GitHub or clone the repository on your computer.
 
@@ -41,4 +41,4 @@ the creator/s of the license.
 
 * The output should resemble the ones seen on Fig.16 (can be found in the pdf "TFM_AIDA_SANCHEZ_ROMERO" within 'doc' folder). 
 
-Note: the execution time should not exceed 12 seconds.
+**Note**: the execution time should not exceed 12 seconds.
